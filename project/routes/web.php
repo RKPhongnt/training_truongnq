@@ -12,5 +12,21 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
+});
+
+
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login')->middleware('guest');
+Route::post('login', 'Auth\LoginController@login')->name('login')->middleware('guest');
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+
+
+Route::get('password/reset', 'Auth\ForgetPasswordController@showLinkRequestForm');
+Route::prefix('admin')->group(function() {
+    Route::get('/', 'AdminController@index');
+});
+
+
+Route::prefix('user')->group(function() {
+    Route::get('/', 'UserController@index');
 });
