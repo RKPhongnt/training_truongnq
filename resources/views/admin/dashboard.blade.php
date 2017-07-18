@@ -15,3 +15,10 @@
     </div>
 </div>
 @endsection
+
+
+@section('menu')
+
+    @include('admin.menu')
+
+@endsection

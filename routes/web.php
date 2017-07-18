@@ -11,21 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
-
 Auth::routes();
 
-Route::get('login', 'Auth\LoginController@showLoginForm')->name('login')->middleware('guest');
-Route::post('login', 'Auth\LoginController@login')->name('login')->middleware('guest');
+Route::get('/', 'Auth\LoginController@showLoginForm')->name('home');
+
+
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login')->name('login');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
-//
-//Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
-//Route::post('password/reset', 'Auth\ResetPasswordController@reset');
-//Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-//Route::post('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+Route::get('new_user', 'AdminController@showNewUserForm');
+Route::post('new_user', 'AdminController@newUser')->name('admin.new-user');
 
 Route::prefix('admin')->group(function() {
     Route::get('/', 'AdminController@index');
