@@ -32,7 +32,7 @@
                 <a href="#"><i class="fa fa-users fa-fw"></i> User<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#">List User</a>
+                        <a href="{{route('admin.list-user')}}">List User</a>
                     </li>
                     <li>
                         <a href="{{route('admin.new-user')}}">Add User</a>

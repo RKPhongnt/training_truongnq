@@ -20,11 +20,13 @@ Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
-Route::get('new_user', 'AdminController@showNewUserForm');
-Route::post('new_user', 'AdminController@newUser')->name('admin.new-user');
+
 
 Route::prefix('admin')->group(function() {
     Route::get('/', 'AdminController@index');
+    Route::get('new_user', 'AdminController@showNewUserForm');
+    Route::post('new_user', 'AdminController@newUser')->name('admin.new-user');
+    Route::get('list_user', 'AdminController@showListUser')->name('admin.list-user');
 });
 
 

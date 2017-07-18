@@ -81,4 +81,10 @@ class AdminController extends Controller
             $message->to($data['email'])->subject('Welcome!');
         });
     }
+
+
+    public function showListUser() {
+        $users = User::all();
+        return view('admin.list-user', ['users'=>$users]);
+    }
 }
