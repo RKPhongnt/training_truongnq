@@ -25,7 +25,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/admin';
+    protected $redirectTo = '/Admin';
 
     /**
      * Create a new controller instance.
@@ -54,12 +54,12 @@ class LoginController extends Controller
         // validate
         $this->validateLogin($request);
         
-        //attempt login and redirect o user or admin dashboard
+        //attempt login and redirect o user or Admin dashboard
 
         if(Auth::attempt(['username' => $request->username, 'password' => $request->password], $request->remember)) {
             $user = Auth::user();
             if ($user->is_admin == 1){
-                 return redirect('admin');
+                 return redirect('Admin');
             }
             return redirect('user');
         }

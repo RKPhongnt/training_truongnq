@@ -23,10 +23,13 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 
 Route::prefix('admin')->group(function() {
-    Route::get('/', 'AdminController@index');
-    Route::get('new_user', 'AdminController@showNewUserForm');
-    Route::post('new_user', 'AdminController@newUser')->name('admin.new-user');
-    Route::get('list_user', 'AdminController@showListUser')->name('admin.list-user');
+    Route::get('/', 'Admin\AdminController@index');
+    Route::get('new_user', 'Admin\UserManagerController@showNewUserForm');
+    Route::post('new_user', 'Admin\UserManagerController@newUser')->name('admin.users.new');
+    Route::get('users', 'Admin\UserManagerController@showListUser')->name('admin.users');
+    Route::get('users/{id}/edit', 'Admin\UserManagerController@editUser')->name('admin.users.edit');
+    Route::post('users/{id}/update', 'Admin\UserManagerController@updateUser')->name('admin.users.update');
+    Route::get('users/{id}/destroy', 'Admin\UserManagerController@destroyUser')->name('admin.users.destroy');
 });
 
 

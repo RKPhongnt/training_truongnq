@@ -19,10 +19,10 @@
                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Category<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#">List Category</a>
+                        <a href="#">List Division</a>
                     </li>
                     <li>
-                        <a href="#">Add Category</a>
+                        <a href="#">Add Division</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -32,10 +32,10 @@
                 <a href="#"><i class="fa fa-users fa-fw"></i> User<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="{{route('admin.list-user')}}">List User</a>
+                        <a href="{{route('admin.users')}}">List User</a>
                     </li>
                     <li>
-                        <a href="{{route('admin.new-user')}}">Add User</a>
+                        <a href="{{route('admin.users.new')}}">Add User</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->

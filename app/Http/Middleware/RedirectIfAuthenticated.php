@@ -18,7 +18,7 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        //if user logined return to admin or user dashboard
+        //if user logined return to Admin or user dashboard
         
         if (Auth::check()) {
             $user = Auth::user();

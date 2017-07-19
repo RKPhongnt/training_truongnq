@@ -19,7 +19,7 @@
                         </div>
                     @endif
 
-                    <form method="POST" action="{{route('admin.new-user')}}">
+                    <form method="POST" action="{{route('admin.users.new')}}">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                         <div class="form-group">
@@ -49,7 +49,7 @@
                         </div>
                         <button type="submit" class="btn btn-default">User Add</button>
                         <button type="reset" class="btn btn-default">Reset</button>
-                        <form>
+                        </form>
                 </div>
             </div>
             <!-- /.row -->
