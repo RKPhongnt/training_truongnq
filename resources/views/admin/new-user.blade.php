@@ -27,6 +27,10 @@
                             <input class="form-control" name="username" placeholder="Please Enter Username" />
                         </div>
                         <div class="form-group">
+                            <label>Division</label>
+                            <input id="division_id"  class="form-control" name="division_id" placeholder="Please Enter Division" />
+                        </div>
+                        <div class="form-group">
                             <label>Password</label>
                             <input id="password" type="password" class="form-control" name="password" placeholder="Please Enter Password" />
                         </div>
@@ -47,8 +51,7 @@
                                 <input name="is_admin" value="0" type="radio">User
                             </label>
                         </div>
-                        <button type="submit" class="btn btn-default">User Add</button>
-                        <button type="reset" class="btn btn-default">Reset</button>
+                        <button type="submit" class="btn btn-primary">User Add</button>
                         </form>
                 </div>
             </div>

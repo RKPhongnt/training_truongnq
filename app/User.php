@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'address', 'username', 'is_admin', 'is_active'
+        'name', 'email', 'password', 'address', 'username', 'is_admin', 'is_active', 'division_id'
     ];
 
     /**
@@ -36,4 +36,12 @@ class User extends Authenticatable
         'is_admin' => 'boolean',
         'is_active' => 'boolean'
     ];
+
+    /**get the division user belongs to
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+
+    public function division() {
+        return $this->belongsTo('App\Division', 'division_id','id');
+    }
 }

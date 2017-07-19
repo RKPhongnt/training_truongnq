@@ -13,6 +13,7 @@
                     <tr align="center" >
                         <th class="center">Username</th>
                         <th class="center">Emails</th>
+                        <th class="center">Division</th>
                         <th class="center">Is admin</th>
                         <th class="center">Delete</th>
                         <th class="center">Edit</th>
@@ -23,13 +24,14 @@
                         <tr class="odd gradeX" align="center" id = "user_{{$user->id}}">
                             <td>{{$user->username}}</td>
                             <td>{{$user->email}}</td>
+                            <td>{{$user->division->name}}</td>
                             <td>
                                 @if($user->is_admin)
                                     Admin
                                 @else
                                     User
                                 @endif
-                            <td class="center"><i class="fa fa-trash-o fa-fw " ></i> <a href="{{route('admin.users.destroy', $user->id)}}" onclick="return confirm('Are you sure?')">delete</a></td>
+                            <td class="center"><i class="fa fa-trash-o fa-fw " ></i> <a href="{{route('admin.users.destroy', $user->id)}}" onclick="return confirm('Are you sure?')" class="delete-user-btn"  >delete</a></td>
 
                             <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="{{route('admin.users.edit',$user->id)}}">edit</a></td>
                         </tr>

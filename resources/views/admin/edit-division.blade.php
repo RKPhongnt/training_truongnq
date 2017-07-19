@@ -19,22 +19,22 @@
                         </div>
                     @endif
 
-                        <form method="POST" action="{{route('admin.divisions.new')}}">
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+                    <form method="POST" action="{{route('admin.divisions.update', $division->id)}}">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 
-                            <div class="form-group">
-                                <label>Name</label>
-                                <input class="form-control" name="name" placeholder="Please Enter Division Name" />
-                            </div>
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input class="form-control" name="name" value="{{$division->name}}" placeholder="Please Enter Division Name" />
+                        </div>
 
-                            <div class="form-group">
-                                <label>Description</label>
-                                <input class="form-control" name="description" placeholder="Please Enter Division Description" />
-                            </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <input class="form-control" name="description" value="{{$division->description}}" placeholder="Please Enter Division Description" />
+                        </div>
 
 
-                            <button type="submit" class="btn btn-primary">Create</button>
-                        </form>
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </form>
                 </div>
             </div>
             <!-- /.row -->
