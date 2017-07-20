@@ -6,7 +6,15 @@
             <div class="row">
                 @if (Session::has('message'))
                     <div class="alert-success">{{Session::get('message')}}</div>
-            @endif
+                @endif
+
+                @if(count($errors)>0)
+                    <div class="alert alert-danger">
+                        @foreach($errors->all() as $error)
+                            {{$error}}
+                        @endforeach
+                    </div>
+                @endif
             <!-- /.col-lg-12 -->
                 <table class="table table-striped table-bordered table-hover" >
                     <thead>
@@ -20,7 +28,7 @@
                         <tr class="odd gradeX" align="center" id = "user_{{$division->id}}">
                             <td>{{$division->name}}</td>
                             <td>{{$division->description}}</td>
-                            <td class="center"><i class="fa fa-trash-o fa-fw " ></i> <a href="#" onclick="return confirm('Are you sure?')">delete</a></td>
+                            <td class="center"><i class="fa fa-trash-o fa-fw " ></i> <a href="{{route('admin.divisions.destroy', $division->id)}}" onclick="return confirm('Are you sure?')">delete</a></td>
 
                             <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="{{route('admin.divisions.edit', $division->id)}}">edit</a></td>
                         </tr>

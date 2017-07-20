@@ -59,7 +59,7 @@ class LoginController extends Controller
         if(Auth::attempt(['username' => $request->username, 'password' => $request->password], $request->remember)) {
             $user = Auth::user();
             if ($user->is_admin == 1){
-                 return redirect('Admin');
+                 return redirect('admin');
             }
             return redirect('user');
         }

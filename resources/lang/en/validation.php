@@ -87,6 +87,7 @@ return [
     'unique'               => 'The :attribute has already been taken.',
     'uploaded'             => 'The :attribute failed to upload.',
     'url'                  => 'The :attribute format is invalid.',
+    'user_existed_in_division' => 'The :attribute must not have any users',
 
     /*
     |--------------------------------------------------------------------------

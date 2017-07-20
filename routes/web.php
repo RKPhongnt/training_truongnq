@@ -37,6 +37,7 @@ Route::prefix('admin')->group(function() {
     Route::get('divisions', 'Admin\DivisionManagerController@showListDivision')->name('admin.divisions');
     Route::get('divisions/{id}/edit', 'Admin\DivisionManagerController@edit')->name('admin.divisions.edit');
     Route::post('divisions/{id}/update', 'Admin\DivisionManagerController@update')->name('admin.divisions.update');
+    Route::get('divisions/{id}/destroy', 'Admin\DivisionManagerController@destroy')->name('admin.divisions.destroy');
 });
 
 

@@ -29,6 +29,19 @@
                         </div>
 
                         <div class="form-group">
+                            <label>Division</label>
+                            <select class="form-control" name="division_id">
+                                @foreach( $divisions as $division)
+                                        @if ($division->id == $user->division_id)
+                                            <option value="{{$division->id}}" selected>{{$division->name}}</option>
+                                        @else
+                                            <option value="{{$division->id}}">{{$division->name}}</option>
+                                        @endif
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="form-group">
                             <label>Password</label>
                             <input id="password" type="password" class="form-control" name="password"  />
                         </div>

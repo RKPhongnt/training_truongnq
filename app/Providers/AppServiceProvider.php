@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Validation\Validator;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -17,6 +18,9 @@ class AppServiceProvider extends ServiceProvider
     {
         // set default string length
         Schema::defaultStringLength(191);
+        // Validate check user in department
+
+
     }
 
     /**

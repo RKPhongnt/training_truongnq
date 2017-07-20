@@ -14,7 +14,7 @@
                         <th class="center">Username</th>
                         <th class="center">Emails</th>
                         <th class="center">Division</th>
-                        <th class="center">Is admin</th>
+                        <th class="center">Role</th>
                         <th class="center">Delete</th>
                         <th class="center">Edit</th>
                     </tr>

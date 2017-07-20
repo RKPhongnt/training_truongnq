@@ -26,14 +26,22 @@
                             <label>Username</label>
                             <input class="form-control" name="username" placeholder="Please Enter Username" />
                         </div>
+
+
                         <div class="form-group">
                             <label>Division</label>
-                            <input id="division_id"  class="form-control" name="division_id" placeholder="Please Enter Division" />
+                            <select class="form-control" name="division_id">
+                                @foreach($divisions as $division)
+                                    <option value="{{$division->id}}">{{$division->name}}</option>
+                                @endforeach
+                            </select>
                         </div>
+
                         <div class="form-group">
                             <label>Password</label>
                             <input id="password" type="password" class="form-control" name="password" placeholder="Please Enter Password" />
                         </div>
+
                         <div class="form-group">
                             <label>Confirm Password</label>
                             <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Please Enter RePassword" />
