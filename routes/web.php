@@ -31,14 +31,36 @@ Route::prefix('admin')->group(function() {
     Route::post('users/{id}/update', 'Admin\UserManagerController@updateUser')->name('admin.users.update');
     Route::get('users/{id}/destroy', 'Admin\UserManagerController@destroyUser')->name('admin.users.destroy');
 
+    Route::get('divisions', 'Admin\DivisionManagerController@showListDivision')->name('admin.divisions');
+
     Route::get('divisions/new', 'Admin\DivisionManagerController@showNewDivisionForm');
     Route::post('divisions/new', 'Admin\DivisionManagerController@newDivision')->name('admin.divisions.new');
 
-    Route::get('divisions', 'Admin\DivisionManagerController@showListDivision')->name('admin.divisions');
     Route::get('divisions/{id}/edit', 'Admin\DivisionManagerController@edit')->name('admin.divisions.edit');
     Route::post('divisions/{id}/update', 'Admin\DivisionManagerController@update')->name('admin.divisions.update');
     Route::get('divisions/{id}/destroy', 'Admin\DivisionManagerController@destroy')->name('admin.divisions.destroy');
+
+    Route::get('positions', 'Admin\PositionManagerController@showListPosition')->name('admin.positions');
+
+    Route::get('positions/new', 'Admin\PositionManagerController@showNewPositionForm');
+    Route::post('positions/new', 'Admin\PositionManagerController@newPosition')->name('admin.positions.new');
+
+    Route::get('positions/{id}/edit', 'Admin\PositionManagerController@edit')->name('admin.positions.edit');
+    Route::post('positions/{id}/update', 'Admin\PositionManagerController@update')->name('admin.positions.update');
+    Route::get('positions/{id}/destroy', 'Admin\PositionManagerController@destroy')->name('admin.positions.destroy');
+
+    Route::post('resetMail', 'Admin\UserManagerController@resetMailGroup')->name('admin.reset.mail.group');
+
+    Route::get('export_to_excel', 'Admin\UserManagerController@exportToExcel')->name('admin.export.to.excel');
+
 });
+
+Route::get('change-password', 'Auth\ChangePasswordController@showChangePasswordForm');
+Route::post('change-password/{id}', 'Auth\ChangePasswordController@changePassword')->name('change-password');
+
+Route::get('profile', 'ProfileManagerController@showProfile')->name('profile');
+Route::post('profile', 'ProfileManagerController@update')->name('update.profile');
+
 
 
 Route::prefix('user')->group(function() {

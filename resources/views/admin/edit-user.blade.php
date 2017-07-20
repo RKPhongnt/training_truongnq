@@ -42,6 +42,19 @@
                         </div>
 
                         <div class="form-group">
+                            <label>Position</label>
+                            <select class="form-control" name="position_id">
+                                @foreach( $positions as $position)
+                                    @if ($position->id == $user->position_id)
+                                        <option value="{{$position->id}}" selected>{{$position->name}}</option>
+                                    @else
+                                        <option value="{{$position->id}}">{{$position->name}}</option>
+                                    @endif
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="form-group">
                             <label>Password</label>
                             <input id="password" type="password" class="form-control" name="password"  />
                         </div>

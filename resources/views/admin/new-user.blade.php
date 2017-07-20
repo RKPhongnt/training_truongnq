@@ -38,6 +38,15 @@
                         </div>
 
                         <div class="form-group">
+                            <label>Position</label>
+                            <select class="form-control" name="position_id">
+                                @foreach($positions as $position)
+                                    <option value="{{$position->id}}">{{$position->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="form-group">
                             <label>Password</label>
                             <input id="password" type="password" class="form-control" name="password" placeholder="Please Enter Password" />
                         </div>

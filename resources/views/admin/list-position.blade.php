@@ -14,29 +14,30 @@
                             {{$error}}
                         @endforeach
                     </div>
-                @endif
+            @endif
             <!-- /.col-lg-12 -->
                 <table class="table table-striped table-bordered table-hover" >
                     <thead>
                     <tr align="center" >
                         <th class="center">Name</th>
+                        <th class="center">Level</th>
                         <th class="center">Description</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($divisions as $division)
-                        <tr class="odd gradeX" align="center" id = "user_{{$division->id}}">
-                            <td>{{$division->name}}</td>
-                            <td>{{$division->description}}</td>
-                            <td class="center"><i class="fa fa-trash-o fa-fw " ></i> <a href="{{route('admin.divisions.destroy', $division->id)}}" onclick="return confirm('Are you sure?')">delete</a></td>
+                    @foreach($positions as $position)
+                        <tr class="odd gradeX" align="center" id = "user_{{$position->id}}">
+                            <td>{{$position->name}}</td>
+                            <td>{{$position->level}}</td>
+                            <td>{{$position->description}}</td>
+                            <td class="center"><i class="fa fa-trash-o fa-fw " ></i> <a href="{{route('admin.positions.destroy', $position->id)}}" onclick="return confirm('Are you sure?')">delete</a></td>
 
-                            <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="{{route('admin.divisions.edit', $division->id)}}">edit</a></td>
+                            <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="{{route('admin.positions.edit', $position->id)}}">edit</a></td>
                         </tr>
                     @endforeach
                     </tbody>
                 </table>
-                    {!! $divisions->render() !!}
-                <a href="{{route('admin.divisions.new')}}" class="btn btn-primary">Add Division</a>
+                <a href="{{route('admin.positions.new')}}" class="btn btn-primary">Add Position</a>
             </div>
             <!-- /.row -->
         </div>

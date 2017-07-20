@@ -20,8 +20,12 @@ class AdminMiddleware
         if (Auth::check()) {
            $user = Auth::user();
            if ($user->is_admin == 1) {
+               if (!$user->is_active) {
+                    return redirect('change-password');
+               }
                 return $next($request);
            }
+
         }
         return redirect('login');
     }

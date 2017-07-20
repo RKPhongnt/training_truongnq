@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'address', 'username', 'is_admin', 'is_active', 'division_id'
+        'name', 'email', 'password', 'address', 'username', 'is_admin', 'is_active', 'division_id' , 'position_id'
     ];
 
     /**
@@ -43,5 +43,9 @@ class User extends Authenticatable
 
     public function division() {
         return $this->belongsTo('App\Division', 'division_id','id');
+    }
+
+    public function position() {
+        return $this->belongsTo('App\Position', 'position_id', 'id');
     }
 }

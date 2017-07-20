@@ -30,13 +30,13 @@
 
 
             <li>
-                <a href="#"><i class="fa fa-users fa-fw"></i><span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-users fa-fw">Position</i><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="{{route('admin.users')}}">List User</a>
+                        <a href="{{route('admin.positions')}}">List Position</a>
                     </li>
                     <li>
-                        <a href="{{route('admin.users.new')}}">Add User</a>
+                        <a href="{{route('admin.positions.new')}}">Add Position</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
