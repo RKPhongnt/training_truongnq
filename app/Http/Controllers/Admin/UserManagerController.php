@@ -235,4 +235,26 @@ class UserManagerController extends Controller
         })->export('xlsx');
     }
 
+    /**
+     * Return list user in division
+     * @param $division_id
+     * @return \Illuminate\Contracts\View\Factory|View
+     */
+    public function userInDivision($division_id) {
+        try {
+            $division = Division::findOrFail($division_id);
+            $users =  User::where('division_id','=',$division_id)->paginate(5);
+            return view('admin.list-user-in-division')->with(compact('division','users'));
+        } catch (ModelNotFoundException $exception) {
+            return view('admin.not-found');
+        }
+
+
+
+
+
+    }
+
+
+
 }

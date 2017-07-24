@@ -26,7 +26,7 @@
                     <tbody>
                     @foreach($divisions as $division)
                         <tr class="odd gradeX" align="center" id = "user_{{$division->id}}">
-                            <td>{{$division->name}}</td>
+                            <td><a href="{{route('admin.user_in_division', $division->id)}}">{{$division->name}}</a></td>
                             <td>{{$division->description}}</td>
                             <td class="center"><i class="fa fa-trash-o fa-fw " ></i> <a href="{{route('admin.divisions.destroy', $division->id)}}" onclick="return confirm('Are you sure?')">delete</a></td>
 

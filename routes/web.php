@@ -53,6 +53,8 @@ Route::prefix('admin')->group(function() {
 
     Route::get('export_to_excel', 'Admin\UserManagerController@exportToExcel')->name('admin.export.to.excel');
 
+    Route::get('user_in_list/{division_id}', 'Admin\UserManagerController@userInDivision')->name('admin.user_in_division');
+
 });
 
 Route::get('change-password', 'Auth\ChangePasswordController@showChangePasswordForm');
