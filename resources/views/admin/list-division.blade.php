@@ -42,6 +42,10 @@
         </div>
         <!-- /.container-fluid -->
 
+        <center>
+            {!! Charts::assets() !!}
+            {!! $chart->render() !!}
+        </center>
     </div>
 @endsection
 

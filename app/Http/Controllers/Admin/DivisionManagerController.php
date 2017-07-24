@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Division;
 use App\User;
+use ConsoleTVs\Charts\Facades\Charts;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 class DivisionManagerController extends Controller
@@ -71,7 +73,22 @@ class DivisionManagerController extends Controller
      */
     public function showListDivision() {
         $divisions = Division::paginate(5);
-        return view('admin.list-division', ['divisions' => $divisions]);
+
+        $data = DB::table('users')
+            ->select(DB::raw('COUNT(users.id) as NumberOfUsers, divisions.name as DivisionName'))
+            ->join('divisions', 'users.division_id', '=','divisions.id')
+            ->groupBy('users.division_id')
+            ->get();
+
+        $chart = Charts::database($data, 'pie', 'highcharts')
+            ->title('Proportion of people in the Division')
+            ->elementLabel('Proportion of people in the Division')
+            ->dimensions(1000,500)
+            ->labels($data->pluck('DivisionName'))
+            ->values($data->pluck('NumberOfUsers'))
+            ->responsive(false);
+
+        return view('admin.list-division', compact('divisions', 'chart'));
     }
 
 
@@ -126,6 +143,11 @@ class DivisionManagerController extends Controller
         ]);
     }
 
+    /**
+     * remove division with id
+     * @param $id
+     * @return $this|\Illuminate\Http\RedirectResponse
+     */
     public function destroy($id){
         $users = User::where('division_id', '=', $id)->get();
 
@@ -140,6 +162,7 @@ class DivisionManagerController extends Controller
         } catch (ModelNotFoundException $exception) {
             return redirect()->back()->withErrors(array('Division not existed!'));
         }
-
     }
+
+
 }

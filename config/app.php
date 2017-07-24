@@ -179,9 +179,15 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-
+        /**
+         * export data to excel
+         */
         Maatwebsite\Excel\ExcelServiceProvider::class,
 
+        /**
+         * show chart
+         */
+        ConsoleTVs\Charts\ChartsServiceProvider::class,
 
 
 
@@ -236,6 +242,7 @@ return [
         'Form' => 'Collective\Html\FormFacade',
         'Html' => 'Collective\Html\HtmlFacade',
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'Charts' => ConsoleTVs\Charts\Facades\Charts::class,
 
     ],
 
